@@ -1,0 +1,16 @@
+{
+    "name": "dalitso/framework",
+    "autoload": {
+        "psr-4": {
+            "app\\":"./"
+        }
+    },
+    "authors": [
+        {
+            "name": "DalitsoTembo",
+            "email": "tembodalitso2@gmail.com"
+        }
+    ],
+   
+    "require": {}
+}
