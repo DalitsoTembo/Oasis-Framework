@@ -1,4 +1,23 @@
-<h1>Contact Page!!!</h1>
+<h2>Enter Details</h2><br>
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur ab eum minima eaque ipsa nisi enim expedita tempore harum, quod incidunt itaque, quasi excepturi. Beatae, tempora at. Iusto, repellendus qui?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi magni placeat, assumenda quis labore commodi ut voluptatem, maiores, esse asperiores aspernatur veritatis? Aspernatur nihil consequatur explicabo, deleniti consequuntur soluta numquam!
-</p>
+<form action="/contacts" method="POST" class="form">
+
+    <div class="col-md-4">
+        <label>Subject</label>
+        <input class="form-control col" type="text" name="subject" id="subject"><br>
+    </div>
+
+    <div class="col-md-4">
+        <label>Email</label>
+        <input class="form-control col" type="text" name="email" id="email"><br>
+    </div>
+
+    <div class="col-md-4">
+        <label>Body</label>
+        <textarea class="form-control" name="body"></textarea><br>
+    </div>
+   
+
+    <input class="btn btn-primary" type="submit" value="submit">
+    
+</form>

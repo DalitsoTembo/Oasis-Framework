@@ -24,6 +24,10 @@
             $this->routes['get'][$path] = $callback;
         }
 
+        public function post($path, $callback){
+            $this->routes['post'][$path] = $callback;
+        }
+
         
         public function resolve(){
            $path = $this->request->getPath();
@@ -33,7 +37,7 @@
 
            if($callback === false){
                 $this->response->setStatusCode(404);
-                return "Oops! path: (".$path.") is not defined.";
+                return $this->renderContent("Oops! Path not found");
            }
 
            if(is_string($callback)){
@@ -43,10 +47,11 @@
            return call_user_func($callback);
         }
 
-
+        
         public function renderView($view){
             $layoutContent = $this->layoutContent();
             $viewContent = $this->renderOnlyView($view);
+            // FIND {{ content }} and replace it with $viewcontent in the string $layoutContent
             return str_replace('{{content}}', $viewContent, $layoutContent);
         }
 
@@ -60,6 +65,14 @@
             ob_start();
             include_once(Application::$ROOT_DIR."/views/$view.php");
             return ob_get_clean();
+        }
+
+        /**
+         * 
+         */
+        public function renderContent($viewContent){
+            $layoutContent = $this->layoutContent();
+            return str_replace('{{content}}', $viewContent, $layoutContent);
         }
 
     }

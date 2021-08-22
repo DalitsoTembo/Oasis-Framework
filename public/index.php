@@ -2,7 +2,8 @@
 
     require_once(__DIR__.'./../vendor/autoload.php');
 
-    use app\core\Application;
+use app\controllers\SiteController;
+use app\core\Application;
     
     /*
         Author: Dalitso Tembo
@@ -15,6 +16,8 @@
     $app->router->get('/', 'home');
 
     $app->router->get('/contacts', 'contact');
+
+    $app->router->post('/contacts', [SiteController::class, 'handleContact']);
 
 
 
